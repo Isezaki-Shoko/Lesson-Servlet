@@ -17,13 +17,28 @@
 
 		<%-- ツイート一覧の表示 --%>
 		<ul class="tweet-list">
+			<%
+			List<Tweets> tweet = (List<Tweets>) request.getAttribute("tweets");
+
+			if (tweets!= null) {
+
+				for (Tweet tweet : tweets) {
+			%>
+
 			<li>
+				<p><%=tweet.getContent()%></p>
+
 				<div class="tweet-content">
 					<p>content（ツイート内容）</p>
 					<p class="tweet-info">投稿者: author - 投稿日時: posted_at</p>
 				</div>
 			</li>
+			<%
+			}
+			}
+			%>
 		</ul>
+
 	</div>
 </body>
 </html>
